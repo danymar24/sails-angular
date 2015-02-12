@@ -5,3 +5,9 @@ This is an example Sails.js and AngularJs aplication, it was built with Sails.js
 To use it just run:
 
 git clone https://github.com/danymar24/sails-angular.git
+
+cd sails-angular
+
+npm install
+
+sails lift
