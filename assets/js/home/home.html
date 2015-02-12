@@ -1,0 +1,22 @@
+<div class="container">
+	<header class="jumbotron hero-spacer">
+        <h1>Hello!!</h1>
+        <p>This is a SailsJs, AngularJs and Twitter Bootstrap example, feel free to use it in your proyects.</p>
+        <p>Start using the built in simple CRUD</p>
+        <p><a ng-href="/#/crud" class="btn btn-primary btn-large pull-right">Simple CRUD</a>
+        </p>
+    </header>
+
+	<div ng-repeat="feature in features" class="col-md-3 col-sm-6 hero-feature">
+        <div class="thumbnail">
+            <div class="thumbnail-image">
+                <img ng-src="{{feature.image}}" alt="">
+            </div>
+            <div class="caption">
+                <h3>{{feature.title}}</h3>
+                <p>{{feature.info}}</p>
+                <p>{{feature.ver}}</p>
+            </div>
+        </div>
+    </div>
+</div>

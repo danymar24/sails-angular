@@ -1,0 +1,24 @@
+<div class="container">
+	<h1>Simple crud example</h1>
+	<p>This is a simple Sails.js and AngularJS CRUD example, you can create, read, update and delete entries from the Sails.js API.</p>
+
+	<h2>Entries</h2>
+    <div class="row">
+    	<div ng-repeat="entry in entries" class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>{{entry.title}}</h4>
+                </div>
+                <div class="panel-body">
+                    <p>{{entry.text}}</p>
+                    <a ng-href="/#/crud/read/{{entry.id}}" class="btn btn-sm btn-default">View More</a>
+                    <a ng-href="/#/crud/update/{{entry.id}}" class="btn btn-sm btn-warning">Edit</a>
+                    <a ng-href="/#/crud/delete/{{entry.id}}" class="btn btn-sm btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+    	<a ng-href="/#/crud/create" class="btn btn-primary pull-right">Create</a>
+	</div>
+</div>

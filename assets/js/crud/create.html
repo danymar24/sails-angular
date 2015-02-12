@@ -1,0 +1,10 @@
+<div class="container">
+	<h1>New entry</h1>
+	<form name="CreateForm" ng-submit="createEntry()">
+		<label for="title">Title</label>
+		<input type="text" name="title" id="title" ng-model="createData.title">
+		<label for="text">Text</label>
+		<input type="text" name="text" id="text" ng-model="createData.text">
+		<button>Create</button>
+	</form>
+</div>
