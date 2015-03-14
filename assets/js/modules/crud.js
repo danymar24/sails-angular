@@ -12,23 +12,23 @@ angular.module('sails-angular.crud', ['ngRoute', 'ngResource'])
 
 .config(['$routeProvider', function ($routeProvider) {
   $routeProvider.when('/crud', {
-    templateUrl: 'js/crud/read.html',
+    templateUrl: '/templates/crud/read.html',
     controller: 'ReadController'
   });
   $routeProvider.when('/crud/read/:id', {
-  	templateUrl: 'js/crud/readOne.html',
+  	templateUrl: '/templates/crud/readOne.html',
   	controller: 'ReadOneController'
   });
   $routeProvider.when('/crud/create', {
-  	templateUrl: 'js/crud/create.html',
+  	templateUrl: '/templates/crud/create.html',
   	controller: 'CreateController'
   });
   $routeProvider.when('/crud/update/:id', {
-  	templateUrl: 'js/crud/update.html',
+  	templateUrl: '/templates/crud/update.html',
   	controller: 'UpdateController'
   });
   $routeProvider.when('/crud/delete/:id', {
-  	templateUrl: 'js/crud/delete.html',
+  	templateUrl: '/templates/crud/delete.html',
   	controller: 'DeleteController'
   });
 }])

@@ -13,7 +13,7 @@ angular.module('sails-angular.home', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/', {
-    templateUrl: 'js/home/home.html',
+    templateUrl: '/templates/home/home.html',
     controller: 'HomeController'
   });
 }])
@@ -30,7 +30,7 @@ angular.module('sails-angular.home', ['ngRoute'])
 				'title': 'Angular.Js',
 				'image': '/images/AngularJS.png',
 				'info': 'Using the latest stable version of AngularJS',
-				'ver': 'v1.3.13',
+				'ver': 'v1.3.14',
 			},
 			{
 				'title': 'Bootstrap 3',
