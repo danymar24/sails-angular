@@ -18,7 +18,7 @@ angular.module('sails-angular.home', [])
   });
 }])
 
-.controller('HomeController', function ($scope) {
+.controller('HomeController', ['$scope', function ($scope) {
 	$scope.features = [
 			{
 				'title': 'Sails.Js',
@@ -43,4 +43,4 @@ angular.module('sails-angular.home', [])
 				'info': 'Built in simple CRUD to start developing',
 			}
 		]
-});
+}]);

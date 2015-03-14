@@ -33,22 +33,22 @@ angular.module('sails-angular.crud', [])
   });
 }])
 
-.factory('CrudService', function ($resource){
+.factory('CrudService', ['$resource', function ($resource){
 	return $resource('/crud/:id', {id: '@id'}, {
 		'update': {method: 'PUT'}
 	});
-})
+}])
 
-.controller('CreateController', function ($scope, $location, CrudService) {
+.controller('CreateController', ['$scope', '$location', 'CrudService', function ($scope, $location, CrudService) {
 	$scope.createEntry = function (){
 		CrudService.save($scope.createData, function(){
 			$location.path('/crud/');
 		});
 		
 	}
-})
+}])
 
-.controller('ReadController', function ($scope, CrudService) {
+.controller('ReadController', ['$scope', 'CrudService', function ($scope, CrudService) {
 	CrudService.query(function (data){
 		$scope.entries = data;
 	});
@@ -56,9 +56,9 @@ angular.module('sails-angular.crud', [])
 	$scope.delete = function (DeleteId){
 		CrudService.delete({ id: DeleteId });
 	};
-})
+}])
 
-.controller('ReadOneController', function ($scope, CrudService, $routeParams) {
+.controller('ReadOneController', ['$scope', 'CrudService', '$routeParams', function ($scope, CrudService, $routeParams) {
 	CrudService.get({ id: $routeParams.id }, function (data){
 		$scope.entry = data;
 	});
@@ -66,19 +66,19 @@ angular.module('sails-angular.crud', [])
 	$scope.delete = function (DeleteId){
 		CrudService.delete({ id: DeleteId });
 	};
-})
+}])
 
-.controller('UpdateController', function ($scope, $location, CrudService, $routeParams) {
+.controller('UpdateController', ['$scope', '$location', 'CrudService', '$routeParams', function ($scope, $location, CrudService, $routeParams) {
 	$scope.updateEntry = function (){
 		CrudService.update({ id: $routeParams.id }, $scope.updateData, function(response){
 			$location.path('/crud/read/' + response.id);
 		});
 	}
-})
+}])
 
-.controller('DeleteController', function ($scope, $location, CrudService, $routeParams) {
+.controller('DeleteController', ['$scope', '$location', 'CrudService', '$routeParams', function ($scope, $location, CrudService, $routeParams) {
 	CrudService.delete({ id: $routeParams.id }, function(){
 		$location.path('/crud/');
 	});
 	
-})
+}])
