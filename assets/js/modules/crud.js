@@ -8,7 +8,7 @@
  * 
  */
 
-angular.module('sails-angular.crud', ['ngRoute', 'ngResource'])
+angular.module('sails-angular.crud', [])
 
 .config(['$routeProvider', function ($routeProvider) {
   $routeProvider.when('/crud', {

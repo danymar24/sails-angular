@@ -9,7 +9,7 @@
  * 
  */
 
-angular.module('sails-angular.home', ['ngRoute'])
+angular.module('sails-angular.home', [])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/', {

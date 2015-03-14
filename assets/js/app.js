@@ -10,6 +10,7 @@
 
 angular.module('sails-angular', [
   'ngRoute',
+  'ngResource',
   'sails-angular.home',
   'sails-angular.crud'
 ])
