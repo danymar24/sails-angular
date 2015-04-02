@@ -9,12 +9,12 @@
  */
 
 angular.module('sails-angular', [
-  'ngRoute',
+  'ui.router', 
   'ngResource',
   'sails-angular.home',
   'sails-angular.crud'
 ])
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/'});
+.config(['$urlRouterProvider', function($urlRouterProvider) {
+	$urlRouterProvider.otherwise('/');
 }]);

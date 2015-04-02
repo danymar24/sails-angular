@@ -10,27 +10,33 @@
 
 angular.module('sails-angular.crud', [])
 
-.config(['$routeProvider', function ($routeProvider) {
-  $routeProvider.when('/crud', {
-    templateUrl: '/templates/crud/read.html',
-    controller: 'ReadController'
-  });
-  $routeProvider.when('/crud/read/:id', {
-  	templateUrl: '/templates/crud/readOne.html',
-  	controller: 'ReadOneController'
-  });
-  $routeProvider.when('/crud/create', {
-  	templateUrl: '/templates/crud/create.html',
-  	controller: 'CreateController'
-  });
-  $routeProvider.when('/crud/update/:id', {
-  	templateUrl: '/templates/crud/update.html',
-  	controller: 'UpdateController'
-  });
-  $routeProvider.when('/crud/delete/:id', {
-  	templateUrl: '/templates/crud/delete.html',
-  	controller: 'DeleteController'
-  });
+.config(['$stateProvider', function ($stateProvider) {
+  	$stateProvider
+		.state('crud', {
+			url: '/crud', 
+			templateUrl: '/templates/crud/read.html',
+			controller: 'ReadController'
+		})
+		.state('read', {
+			url: '/crud/read/:id', 
+			templateUrl: '/templates/crud/readOne.html',
+			controller: 'ReadOneController'
+		})
+		.state('create', {
+			url: '/crud/create', 
+			templateUrl: '/templates/crud/create.html',
+			controller: 'CreateController'
+		})
+		.state('update', {
+			url: '/crud/update/:id', 
+			templateUrl: '/templates/crud/update.html',
+			controller: 'UpdateController'
+		})
+		.state('delete', {
+			url: '/crud/delete/:id', 
+			templateUrl: '/templates/crud/delete.html',
+			controller: 'DeleteController'
+		});
 }])
 
 .factory('CrudService', ['$resource', function ($resource){
@@ -39,10 +45,10 @@ angular.module('sails-angular.crud', [])
 	});
 }])
 
-.controller('CreateController', ['$scope', '$location', 'CrudService', function ($scope, $location, CrudService) {
+.controller('CreateController', ['$scope', '$state', 'CrudService', function ($scope, $state, CrudService) {
 	$scope.createEntry = function (){
 		CrudService.save($scope.createData, function(){
-			$location.path('/crud/');
+			$state.go('crud');
 		});
 		
 	}
@@ -58,8 +64,8 @@ angular.module('sails-angular.crud', [])
 	};
 }])
 
-.controller('ReadOneController', ['$scope', 'CrudService', '$routeParams', function ($scope, CrudService, $routeParams) {
-	CrudService.get({ id: $routeParams.id }, function (data){
+.controller('ReadOneController', ['$scope', 'CrudService', '$stateParams', function ($scope, CrudService, $stateParams) {
+	CrudService.get({ id: $stateParams.id }, function (data){
 		$scope.entry = data;
 	});
 
@@ -68,17 +74,17 @@ angular.module('sails-angular.crud', [])
 	};
 }])
 
-.controller('UpdateController', ['$scope', '$location', 'CrudService', '$routeParams', function ($scope, $location, CrudService, $routeParams) {
+.controller('UpdateController', ['$scope', '$state', 'CrudService', '$stateParams', function ($scope, $state, CrudService, $stateParams) {
 	$scope.updateEntry = function (){
-		CrudService.update({ id: $routeParams.id }, $scope.updateData, function(response){
-			$location.path('/crud/read/' + response.id);
+		CrudService.update({ id: $stateParams.id }, $scope.updateData, function(response){
+			$state.go('read', {id: response.id});
 		});
 	}
 }])
 
-.controller('DeleteController', ['$scope', '$location', 'CrudService', '$routeParams', function ($scope, $location, CrudService, $routeParams) {
-	CrudService.delete({ id: $routeParams.id }, function(){
-		$location.path('/crud/');
+.controller('DeleteController', ['$scope', '$state', 'CrudService', '$stateParams', function ($scope, $state, CrudService, $stateParams) {
+	CrudService.delete({ id: $stateParams.id }, function(){
+		$state.go('crud');
 	});
 	
 }])

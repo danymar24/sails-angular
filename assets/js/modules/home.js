@@ -11,11 +11,13 @@
 
 angular.module('sails-angular.home', [])
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/', {
-    templateUrl: '/templates/home/home.html',
-    controller: 'HomeController'
-  });
+.config(['$stateProvider', function($stateProvider) {
+  $stateProvider
+	.state('home', {
+		url: '/', 
+		templateUrl: '/templates/home/home.html',
+		controller: 'HomeController'
+	});
 }])
 
 .controller('HomeController', ['$scope', function ($scope) {
