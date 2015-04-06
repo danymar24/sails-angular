@@ -2,7 +2,7 @@
 	<header class="jumbotron hero-spacer">
 	    <h1>{{entry.title}}</h1>
 	    <p>{{entry.text}}</p>
-	    <a ng-href="/#/crud/update/{{entry.id}}" class="btn btn-warning btn-large pull-right">Update</a>
-	    <a ng-href="/#/crud/delete/{{entry.id}}" class="btn btn-danger btn-large pull-right">Delete</a>
+	    <a ui-sref="update({id: entry.id})" class="btn btn-warning btn-large pull-right">Update</a>
+	    <a ui-sref="delete({id: entry.id})" class="btn btn-danger btn-large pull-right">Delete</a>
 	</header>
 </div>

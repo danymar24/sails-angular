@@ -11,14 +11,14 @@
                 </div>
                 <div class="panel-body">
                     <p>{{entry.text}}</p>
-                    <a ng-href="/#/crud/read/{{entry.id}}" class="btn btn-sm btn-default">View More</a>
-                    <a ng-href="/#/crud/update/{{entry.id}}" class="btn btn-sm btn-warning">Edit</a>
-                    <a ng-href="/#/crud/delete/{{entry.id}}" class="btn btn-sm btn-danger">Delete</a>
+                    <a ui-sref="read({id: entry.id})" class="btn btn-sm btn-default">View More</a>
+                    <a ui-sref="update({id: entry.id})" class="btn btn-sm btn-warning">Edit</a>
+                    <a ui-sref="delete({id: entry.id})" class="btn btn-sm btn-danger">Delete</a>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-    	<a ng-href="/#/crud/create" class="btn btn-primary pull-right">Create</a>
+    	<a ui-sref="create" class="btn btn-primary pull-right">Create</a>
 	</div>
 </div>
