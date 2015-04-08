@@ -21,7 +21,9 @@ module.exports = function(grunt) {
 			files: ['api/**/*']
 		},
 		assets: {
-
+			options: {
+				livereload: true
+			},
 			// Assets to watch:
 			files: ['assets/**/*', 'tasks/pipeline.js'],
 
