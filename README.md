@@ -1,6 +1,6 @@
 # Sails-Angular
 
-This is an example Sails.js and AngularJs aplication, it was built with Sails.js v0.11.0 and AngularJS v1.3.14
+This is an example Sails.js and AngularJs aplication, it was built with Sails.js v0.11.0, AngularJS v1.4 and Bootstrap v3.3.4 SASS
 
 ## How to use it
 
