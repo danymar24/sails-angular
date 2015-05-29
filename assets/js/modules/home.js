@@ -32,7 +32,7 @@ angular.module('sails-angular.home', [])
 				'title': 'Angular.Js',
 				'image': '/images/AngularJS.png',
 				'info': 'Using the latest stable version of AngularJS',
-				'ver': 'v1.3.14',
+				'ver': 'v1.4',
 			},
 			{
 				'title': 'Bootstrap 3',
