@@ -18,6 +18,15 @@
 	vertical-align: bottom;
 }
 
+input{
+	margin-bottom: 10px;
+}
+
+p.error{
+	color: #CB2424;
+	@include transition(all 0.5s ease);
+}
+
 footer img{
 	max-height: 40px;
 }

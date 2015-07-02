@@ -49,6 +49,8 @@ angular.module('sails-angular.crud', [])
 	$scope.createEntry = function (){
 		CrudService.save($scope.createData, function(){
 			$state.go('crud');
+		}, function(error){
+			$scope.error = error;
 		});
 		
 	}
